@@ -29,6 +29,9 @@ def wolfram_search(request):
 
 
 def run_search(request):
+    ### Test message
+    print("Running search...")
+    
     try:
         wiki_search(request)
     except:

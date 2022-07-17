@@ -8,7 +8,7 @@ WAKE_STATES = {
 }
 
 WAKE_PHRASES = {
-    "activate":   ["Hey, Hal!", "Hey, Hal", "Hey Hal", "Hal"],
+    "activate":   ["Hey, Hal!", "Hey, Hal", "Hey Hal", "Hal", "activate"],
     "deactivate": ["quit", "stop", "exit"]
 }
 

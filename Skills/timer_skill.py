@@ -8,8 +8,6 @@ import arrow
 
 # --- globals
 
-from Skills.skills_settings import *
-
 
 
 # --- functions
@@ -45,8 +43,16 @@ def run_timer(request):
     if newmm > 59:
         newmm -= 60
         newHH += 1
-    newHH = newHH % 24  
+    newHH = newHH % 24
+    ###
+    print(newHH)
+    print(newmm)
+    print(startss)
+    ###
     end_time = str(newHH) + ":" + str(newmm) + ":" + startss
+
+    ### Test message
+    print("Timer will go off at " + end_time)
 
     # Start timer
     while True:
@@ -73,6 +79,9 @@ def run_alarm(request):
         request = request[p1 + len("alarm for") + 1: p2 - 1] + ":00 AM"
     elif p3 != -1 and p4 == -1:
         request = request[p1 + len("alarm for") + 1: p3 - 1] + ":00 PM"
+
+    ### Test message
+    print("Alarm set for " + request)
     
     # Start alarm
     while True:
@@ -88,7 +97,13 @@ def run_alarm(request):
 # --- tests
 
 if __name__ == '__main__':
-    pass
+
+    from skills_settings import *
+
+    
+    request = "set timer for one minute"
+    res = run_timer(request)
+    print(res)
 
 
 
