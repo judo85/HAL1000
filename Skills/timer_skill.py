@@ -4,6 +4,7 @@
 import time
 import arrow
 
+from text2digits import text2digits
 
 
 # --- globals
@@ -13,6 +14,10 @@ import arrow
 # --- functions
 
 def run_timer(request):
+
+    # Text to digits converter
+    t2d     = text2digits.Text2Digits()
+    request = t2d.convert(request)
 
     # Find the positions of "hour" and "minute"
     pos1 = request.find("timer for")
@@ -94,14 +99,15 @@ def run_alarm(request):
 
 
 
+
+
 # --- tests
 
 if __name__ == '__main__':
 
     from skills_settings import *
-
     
-    request = "set timer for one minute"
+    request = "set timer for 1 minute"
     res = run_timer(request)
     print(res)
 
